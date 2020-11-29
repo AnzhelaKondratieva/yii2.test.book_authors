@@ -8,7 +8,10 @@ use app\modules\admin\models\Author;
 
 <div class="category-form">
 
-    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['enctype' => 'multipart/form-data'],
+        'id' => 'book_form',
+        ]); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
@@ -20,7 +23,11 @@ use app\modules\admin\models\Author;
 
     <?= $form->field($model, 'image')->fileInput() ?>
 
-    <?= $form->field($model, 'authors')->dropDownList(ArrayHelper::map($authors, 'id', 'surname')) ?>
+    <?= $form->field($model, 'authors')->dropDownList(ArrayHelper::map($authors, 'id', 'surname'),
+        [
+        'multiple'=>'multiple',           
+        ]) 
+    ?>
     
     <?= $form->field($model, 'date')->textInput(['maxlength' => true]) ?>
 

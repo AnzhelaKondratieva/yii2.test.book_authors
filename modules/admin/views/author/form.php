@@ -7,7 +7,9 @@ use yii\widgets\ActiveForm;
 
 <div class="category-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'id' => 'author_form',
+    ]); ?>
 
     <?= $form->field($model, 'surname')->textInput(['maxlength' => true]) ?>
 
